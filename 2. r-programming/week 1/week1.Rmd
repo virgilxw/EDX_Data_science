@@ -1,0 +1,86 @@
+---
+title: "Week 1"
+output: html_document
+---
+## Read Data
+
+````
+data <- read.csv("./2. r-programming/week 1/hw1_data.csv")
+````
+
+## Q11
+In the dataset provided for this Quiz, what are the column names of the dataset?
+
+```
+colnames <- colnames(data)
+colnames
+```
+
+## Q12
+Extract the first 2 rows of the data frame and print them to the console. What does the output look like?
+
+````
+head(data, 2)
+````
+
+# Q13
+How many observations (i.e. rows) are in this data frame?
+
+````
+nrow(data[1])
+````
+
+# Q14
+Extract the last 2 rows of the data frame and print them to the console. What does the output look like?
+
+````
+tail(data,n=2)
+````
+
+# Q15
+What is the value of Ozone in the 47th row?
+
+````
+data$Ozone[47]
+````
+
+# Q16
+How many missing values are in the Ozone column of this data frame?
+
+````
+sum(is.na(data$Ozone))
+````
+
+# Q17
+What is the mean of the Ozone column in this dataset? Exclude missing values (coded as NA) from this calculation.
+
+````
+mean(data$Ozone, na.rm = TRUE)
+````
+
+# Q18
+Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90. What is the mean of Solar.R in this subset?
+
+````
+subset <- subset(data, data$Ozone>31 & data$Temp>90)
+mean(subset$Solar, na.rm = TRUE)
+
+````
+
+# Q19
+What is the mean of "Temp" when "Month" is equal to 6?
+
+````
+subset <- subset (data, Month==6)
+mean(subset$Temp, na.rm = TRUE)
+````
+
+## Q20
+What was the maximum ozone value in the month of May (i.e. Month is equal to 5)?
+
+````
+subset <- subset (data, Month==5)
+max(subset$Ozone, na.rm = TRUE)
+````
+
+
